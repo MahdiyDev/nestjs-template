@@ -1,0 +1,27 @@
+stages:
+  - build
+  - deploy
+  - clean
+
+variables:
+  CONTAINER_REGISTRY_URL: $CI_REGISTRY/$CI_PROJECT_PATH
+  STACK_NAME: $PROJECT_STACK_NAME
+
+include:
+  - local: .gitlab/prod.yml
+  - local: .gitlab/dev.yml
+  - local: .gitlab/test.yml
+  - local: .gitlab/preprod.yml
+
+clean-builder:
+  stage: clean
+  when: manual
+  script:
+    - docker system prune -fa
+  only:
+    - prod
+    - test
+    - dev
+    - preprod
+  tags:
+    - main-runner
