@@ -1,0 +1,137 @@
+{
+	"root": true,
+	"env": {
+		"node": true
+	},
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"sourceType": "module",
+		"project": ["./tsconfig.eslint.json"],
+		"ecmaFeatures": {
+			"impliedStrict": true
+		}
+	},
+	"plugins": ["@typescript-eslint", "import", "eslint-plugin-tsdoc"],
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:@typescript-eslint/recommended-requiring-type-checking"
+	],
+	"settings": {
+		"import/parsers": {
+			"@typescript-eslint/parser": [".ts"]
+		},
+		"import/resolver": {
+			"eslint-import-resolver-typescript": true
+		}
+	},
+	"rules": {
+		"no-await-in-loop": "error",
+		"no-duplicate-imports": [
+			"warn",
+			{
+				"includeExports": true
+			}
+		],
+		"no-fallthrough": [
+			"warn",
+			{
+				"commentPattern": "fallthrough"
+			}
+		],
+		"no-promise-executor-return": "error",
+		"no-self-compare": "error",
+		"no-unmodified-loop-condition": "warn",
+		"no-unreachable-loop": "error",
+		"no-unsafe-negation": [
+			"warn",
+			{
+				"enforceForOrderingRelations": true
+			}
+		],
+		"no-unsafe-optional-chaining": [
+			"warn",
+			{
+				"disallowArithmeticOperators": true
+			}
+		],
+		"no-use-before-define": [
+			"error",
+			{
+				"functions": true,
+				"classes": true,
+				"variables": true
+			}
+		],
+		"require-atomic-updates": [
+			"error",
+			{
+				"allowProperties": true
+			}
+		],
+		"use-isnan": "error",
+		"valid-typeof": [
+			"error",
+			{
+				"requireStringLiterals": true
+			}
+		],
+		"curly": ["error", "all"],
+		"eqeqeq": ["error", "always"],
+		"quotes": [
+			"warn",
+			"double",
+			{
+				"avoidEscape": true,
+				"allowTemplateLiterals": false
+			}
+		],
+		"eol-last": "error",
+		"no-console": [
+			"warn",
+			{
+				"allow": ["info", "error"]
+			}
+		],
+		"no-implicit-coercion": "error",
+		// "indent": ["error", "tab"],
+		"linebreak-style": ["error", "unix"],
+		"semi": ["warn", "always"],
+		"import/first": "error",
+		"import/order": [
+			"warn",
+			{
+				"groups": [
+					"builtin",
+					"external",
+					"internal",
+					"parent",
+					"sibling",
+					"index",
+					"object",
+					"type"
+				],
+				"newlines-between": "always"
+			}
+		],
+		"import/newline-after-import": "error",
+		"import/no-deprecated": "warn",
+		"import/no-duplicates": "error",
+		"tsdoc/syntax": "warn",
+		"@typescript-eslint/no-explicit-any": [
+			"warn",
+			{
+				"fixToUnknown": true
+			}
+		],
+		"@typescript-eslint/no-unused-vars": [
+			"warn",
+			{
+				"argsIgnorePattern": "^_",
+				"ignoreRestSiblings": true
+			}
+		]
+	},
+	"reportUnusedDisableDirectives": true
+}
